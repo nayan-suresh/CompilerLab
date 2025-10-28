@@ -13,7 +13,7 @@ void main()
 	printf("\n\tSHIFT REDUCE PARSER\n");
 	printf("\nGRAMMAR:\n");
 	printf("E->E+E\nE->E*E\nE->(E)\nE->a|b\n");
-	printf("\n Enter the input Symbol: a+abb\n");
+	printf("\n Enter the input Symbol: \n");
 	scanf("%s",ip_sym);
 	printf("\n Stack\t\tInput\t\tAction\n");
 	printf("\n$ \t\t%s$\t\t--",ip_sym);
@@ -65,4 +65,33 @@ void check()
 		exit(0);
 	}
 }
+
+
+//
+	SHIFT REDUCE PARSER
+
+GRAMMAR:
+E->E+E
+E->E*E
+E->(E)
+E->a|b
+
+ Enter the input Symbol: 
+a+a*b
+
+ Stack		Input		Action
+
+$ 		a+a*b$		--
+$a		+a*b$		SHIFT
+$E		+a*b$		REDUCE E->a|b
+$E+		a*b$		SHIFT
+$E+a		*b$		SHIFT
+$E+E		*b$		REDUCE E->E+E
+$E		*b$		REDUCE E->E+E
+$E*		b$		SHIFT
+$E*b		$		SHIFT
+$E*E		$		REDUCE E->E*E
+$E		$		REDUCE E->E*E
+$E		$		ACCEPT
+
 
