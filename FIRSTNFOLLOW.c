@@ -87,3 +87,18 @@ int dup(char c)
             return 1;
     return 0;
 }
+
+
+
+
+//
+Enter the no of productions:
+3
+Enter the productions:
+S=ABS
+A=a
+B=b
+Enter the elements whose first and follow is to be found:A
+First(A)={a}
+Follow(A)={b}
+Continue(0/1)?
