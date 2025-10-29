@@ -1,0 +1,26 @@
+%{
+   #include<stdio.h> 
+  int lc=0,sc=0,tc=0,wc=0,cc=0;
+%}
+
+%%
+\n  {lc++;}
+[ ] {sc++;}
+[A-Za-z0-9]+    { wc++; cc += yyleng; }
+\t  {tc++;}
+.   {cc++;}
+%%
+  int main()
+{
+  yylex();
+  printf("Linecount=%d",lc);
+printf("wordcount=%d",cc);
+   printf("Charcount=%d",cc);
+   printf("Tabcount=%d",tc);
+   printf("Spacecount=%d",sc);
+   return 0;
+}
+int yywrap()
+{
+  return 1;
+}
